@@ -8,7 +8,9 @@ plugins {
 
     // Para integrar en el proyect hilt
     id("com.google.dagger.hilt.android")
+
 }
+
 
 android {
     namespace = "com.example.libreriadelhorror"
@@ -49,15 +51,26 @@ dependencies {
     // Para integrar Dagger Hilt y sus herramientas necesarias
     implementation(libs.hilt.android)
     implementation(libs.hilt.viewmodel)
+    implementation(libs.androidx.navigation.compose.jvmstubs)
     ksp(libs.hilt.android.compilador)
 
     val androidxhiltCompiler = "1.3.0" // cambiar a 1.2.0
     implementation("androidx.hilt:hilt-work:${androidxhiltCompiler}")
     ksp("androidx.hilt:hilt-compiler:${androidxhiltCompiler}")
 
+    // Dependencia para Hilt y evitar errores extraños
+    implementation("androidx.work:work-runtime-ktx:2.7.0")
+
     // Para instalar retrofit
     implementation(libs.okhttp)
     implementation(libs.retrofit)
+
+    //    // Implementa las librerias de Navigation Compose
+    implementation(libs.androidx.navigation.compose.android)
+
+    //Implementa las librerias de Kotlinx para parcelizar (o utilizar JSON)
+    implementation(libs.kotlinx.serialization.json)
+
     implementation(libs.gson.converter)
     implementation(libs.login.interceptor)
 
