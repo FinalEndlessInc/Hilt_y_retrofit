@@ -9,5 +9,3 @@ object PantallaListaPublicaciones
 @Serializable
 object PantallaPublicacion
 
-@Serializable
-object  PantallaPerfil

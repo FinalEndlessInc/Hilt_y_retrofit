@@ -64,7 +64,7 @@ androidx-navigation-compose-android = { group = "androidx.navigation", name = "n
 
 # Libreria para utilizar el serialization o parcelizar de Kotlin Class a JSON
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref  = "kolinxSerialization" }
-androidx-navigation-compose-jvmstubs = { group = "androidx.navigation", name = "navigation-compose-jvmstubs", version.ref = "navigationComposeJvmstubs" }
+# androidx-navigation-compose-jvmstubs = { group = "androidx.navigation", name = "navigation-compose-jvmstubs", version.ref = "navigationComposeJvmstubs" }
 
 
 [plugins]

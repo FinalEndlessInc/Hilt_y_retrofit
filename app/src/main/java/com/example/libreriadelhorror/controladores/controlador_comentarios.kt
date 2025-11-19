@@ -62,4 +62,16 @@ class ControladorPublicaciones @Inject constructor(
             }
         }
     }
+
+    fun obtener_usuarios(){
+        viewModelScope.launch {
+            try {
+                val usuarios_obtenidas = api_placeholder.obtener_publicaciones()
+                _publicaciones.value = usuarios_obtenidas
+            }
+            catch(error: Exception){
+                Log.wtf("Peticion API", "LA api respondio con un ${error.message}")
+            }
+        }
+    }
 }

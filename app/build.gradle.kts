@@ -51,7 +51,7 @@ dependencies {
     // Para integrar Dagger Hilt y sus herramientas necesarias
     implementation(libs.hilt.android)
     implementation(libs.hilt.viewmodel)
-    implementation(libs.androidx.navigation.compose.jvmstubs)
+    //implementation(libs.androidx.navigation.compose.jvmstubs)
     ksp(libs.hilt.android.compilador)
 
     val androidxhiltCompiler = "1.3.0" // cambiar a 1.2.0
