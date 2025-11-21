@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.libreriadelhorror.api.JSONPlaceholder
 import com.example.libreriadelhorror.modelos.Comentario
 import com.example.libreriadelhorror.modelos.Publicacion
+import com.example.libreriadelhorror.modelos.Usuario
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.util.Collections.emptyList
@@ -23,6 +24,9 @@ class ControladorPublicaciones @Inject constructor(
     private val _publicacion_seleccionada = mutableStateOf(Publicacion(id = 0, title = "404", body = "No encontrado", userId =0))
 
     val publicacion_seleccionada: State<Publicacion> = _publicacion_seleccionada
+
+    private val _usuarios = mutableStateOf(emptyList<Usuario>())
+    val usuarios = State<List<Usuario>> = _usuarios
 
     private val _comentarios = mutableStateOf(emptyList<Comentario>())
     val comentarios: State<List<Comentario>> = _comentarios
@@ -66,8 +70,8 @@ class ControladorPublicaciones @Inject constructor(
     fun obtener_usuarios(){
         viewModelScope.launch {
             try {
-                val usuarios_obtenidas = api_placeholder.obtener_publicaciones()
-                _publicaciones.value = usuarios_obtenidas
+                val usuarios_obtenidos = api_placeholder.obtener_usuarios()
+                _usuarios.value = usuarios_obtenidos
             }
             catch(error: Exception){
                 Log.wtf("Peticion API", "LA api respondio con un ${error.message}")
